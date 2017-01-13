@@ -8,12 +8,12 @@ defmodule Chop do
     IO.puts "Correct guess of #{guess}!"
   end
 
-  def guess(actual, guess, first..last) when actual < guess do
+  def guess(actual, guess, first.._last) when actual < guess do
     IO.puts "Guessed #{guess}"
     guess(actual, midpoint(first,guess-1), first..(guess-1))
   end
 
-  def guess(actual, guess, first..last) when actual > guess do
+  def guess(actual, guess, _first..last) when actual > guess do
     IO.puts "Guessed #{guess}"
     guess(actual, midpoint(guess+1, last), (guess+1)..last)
   end
